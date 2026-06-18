@@ -29,7 +29,7 @@ d’environnement Windows Server et Linux, supervision et gestion
 ITIL, automatisation des tâches récurrentes)
 
 #  Mes contacts
-[Profil LinkedIn](www.linkedin.com/in/brice-konso-858644359)
+[Profil LinkedIn](https://www.linkedin.com/in/brice-konso-858644359/)
 
 [E-mail](brice.k-pro@outlook.fr)
 
