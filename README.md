@@ -13,7 +13,7 @@ Système : Windows, Linux, Déploiement de poste informatique, Sensibilisation �
 Virtualisation : EXSi, Hyper-V, création de cluster, migration à chaud
 
 # Mes formations 
-Technicien informatique de proximité 
+Technicien informatique de proximité Janvier 2026 - Septembre 2026 
 
 #  Mes projets techniques
 Préparation à la certification (CCNA) : Étude des fondamentaux
@@ -27,3 +27,8 @@ Projet 2 : Conception et déploiement d’une infrastructure IT
 d’entreprise sécurisée et supervisée (déploiement
 d’environnement Windows Server et Linux, supervision et gestion
 ITIL, automatisation des tâches récurrentes)
+
+#  Mes contacts
+Profil Linkedin
+E-mail 
+
