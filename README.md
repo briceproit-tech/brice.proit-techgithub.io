@@ -31,12 +31,15 @@ réseaux (TCP/IP, VLAN, routage, switching)
 * **Technologies implémentées :** HSRP (redondance), STP (anti-boucle), Routage inter-VLAN, Segmentation réseau (VLANs).
 
 ### 💻 [Projet 2 : Conception et Déploiement d’une Infrastructure IT]
-* **Objectif :** Création d'une infrastructure d'entreprise sécurisée, supervisée et alignée sur les processus ITIL.
 * **Outil utilisé :** VMware Workstation 25h2 
-* **Réalisations :**
-  * Déploiement d'environnements mixtes Windows Server (Active Directory, DNS, DHCP) et serveurs Linux.
-  * Mise en place d'une solution de gestion de parc et de ticketing.
-  * Automatisation des tâches administratives récurrentes.
+* **Objectif :** Création d'une infrastructure d'entreprise sécurisée, supervisée et alignée sur les processus ITIL.
+* **Réalisations actuel :**
+
+   Déploiement d'environnements mixtes Windows Server (Active Directory, DNS, DHCP) et serveurs Linux.
+  
+   Mise en place d'une solution de gestion de parc et de ticketing.
+  
+   Automatisation des tâches administratives récurrentes.
 
 ---
 
