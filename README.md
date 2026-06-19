@@ -1,36 +1,48 @@
-# Brice KONSO - Portfolio Technicien informatique
-Étudiant en informatique | Parcours Technicien Informatique de Proximité | Suivez mon parcours en tant que futur technicien informatique et ma préparation autonome à la certification CCNA.
+## Brice KONSO - Portfolio technicien informatique 
 
-Au cours de ma formation, j’ai acquis des notions de base en déploiement et configuration de postes Windows et de périphériques, en diagnostic de pannes simples de matérielles et logicielles, ainsi qu’en support informatique auprès des utilisateurs. J’ai également développé des bases en réseaux (IP, DHCP, DNS), en administration de comptes utilisateurs via Active Directory et en support bureautique sur Office 365.
+### Salut ! Moi c'est Brice 👋 Étudiant en informatique, suivez mon parcours en tant que futur technicien informatique de proximité et ma préparation à la certification CCNA !
+
+Au cours de ma formation, j’ai acquis des  compétences de base en déploiement et configuration de postes Windows et de périphériques, en diagnostic de pannes matérielles et logicielles, ainsi qu’en support informatique auprès des utilisateurs. J’ai également développé des notions de base en réseaux (IP, DHCP, DNS), en administration de comptes utilisateurs via Active Directory et en support bureautique sur Microsoft 365.
  
-Je suis aussi familiarisé avec certains outils de ticketing comme GLPI. Motivé, sérieux et curieux, j’aime résoudre des problèmes techniques et accompagner les utilisateurs au quotidien.
+Je suis aussi familiarisé avec les outils de ticketing et de gestion de parc comme GLPI. Motivé, sérieux et curieux, j’aime résoudre des problèmes techniques et accompagner les utilisateurs au quotidien.
 
-# Mes compétences 
-Réseaux : TCP/IP, Routage inter-Vlan, Protocole STP, Etherchannel,Segmentation réseau, HRSP (Cisco packet tracer , GNS3)
+---
 
-Système : Windows, Linux, Déploiement de poste informatique, Sensibilisation à la sécurité de poste informatique, Sauvegarde et restauration, Initiation à l'administration, Notion de base Active Directory (GPO,DHCP,DNS)
+## 🛠️  Mes compétences techniques et formations 
+| **🎓 Formation** | Technicien Informatique de Proximité
 
-Virtualisation : EXSi, Hyper-V, création de cluster, migration à chaud
+| **💻 Systèmes** | Windows Server (2022), Linux, Active Directory (OU, GPO) 
 
-# Mes formations 
-Technicien informatique de proximité Janvier 2026 - Septembre 2026 
+| **🌐 Réseaux** | TCP/IP, Routage inter-VLAN, DHCP, DNS, STP, EtherChannel, HSRP, Routage
 
-#  Mes projets techniques
+| **⚙️ Virtualisation** | VMware ESXi, Hyper-V
+
+| **☁️ Solutions Collaboratives** | Microsoft 365
+
+---
+
+## 📂 Mes lab & projets récents
 Préparation à la certification (CCNA) : Étude des fondamentaux
 réseaux (TCP/IP, VLAN, routage, switching)
 
-Projet 1 : Simulation d’architecture réseau d’entreprise sur Cisco
-Packet Tracer : Architecture réseau haute disponibilité et
-sécurisée (HSRP, STP, routage inter-VLAN, segmentation réseau)
+### 💻 [Projet 1 : Simulation d’Architecture Réseau d’Entreprise]
+* **Outil utilisé :** Cisco Packet Tracer, GNS3
+* **Objectif :** Conception d'une architecture réseau en haute disponibilité et sécurisée.
+* **Technologies implémentées :** HSRP (redondance), STP (anti-boucle), Routage inter-VLAN, Segmentation réseau (VLANs).
 
-Projet 2 : Conception et déploiement d’une infrastructure IT 
-d’entreprise sécurisée et supervisée (déploiement
-d’environnement Windows Server et Linux, supervision et gestion
-ITIL, automatisation des tâches récurrentes)
+### 💻 [Projet 2 : Conception et Déploiement d’une Infrastructure IT]
+* **Objectif :** Création d'une infrastructure d'entreprise sécurisée, supervisée et alignée sur les processus ITIL.
+* **Outil utilisé :** VMware Workstation 25h2 
+* **Réalisations :**
+  * Déploiement d'environnements mixtes Windows Server (Active Directory, DNS, DHCP) et serveurs Linux.
+  * Mise en place d'une solution de gestion de parc et de ticketing.
+  * Automatisation des tâches administratives récurrentes.
 
-#  Mes contacts
-[Profil LinkedIn](https://www.linkedin.com/in/brice-konso-858644359/)
+---
 
-[brice.k-pro@outlook.fr](mailto:brice.k-pro@outlook.fr)
+## 📫 Pour me contacter
+* **LinkedIn :** [Mon Profil Professionnel](https://www.linkedin.com/in/brice-konso-858644359/) 💼
+  
+* **Email :** [brice.k-pro@outlook.fr](mailto:brice.k-pro@outlook.fr) ✉️
 
 
