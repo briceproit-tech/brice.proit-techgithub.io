@@ -28,7 +28,7 @@ réseaux (TCP/IP, VLAN, routage, switching)
 ### 💻 [Projet 1 : Simulation d’architecture réseau d’entreprise]
 * **Outil utilisé :** Cisco Packet Tracer, GNS3
 * **Objectif :** Conception d'une architecture réseau en haute disponibilité et sécurisée.
-* **Technologies implémentées :** HSRP (redondance), STP (anti-boucle), Routage inter-VLAN, Segmentation réseau (VLANs).
+* **Technologies implémentées :** HSRP (redondance), STP (anti-boucle), Routage inter-VLAN, Segmentation réseau (VLANs), Routage.
 
 ### 💻 [Projet 2 : Conception et déploiement d’une infrastructure IT]
 * **Outil utilisé :** VMware Workstation 25h2 
