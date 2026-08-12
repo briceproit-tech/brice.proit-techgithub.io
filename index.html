@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr" class="dark">
+<html lang="fr" class="dark scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -25,7 +25,7 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-white dark:bg-darkbg text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300 leading-relaxed">
+<body id="top" class="bg-white dark:bg-darkbg text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300 leading-relaxed">
 
     <!-- En-tête / Navigation -->
     <header class="py-6 px-6 border-b border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
@@ -33,6 +33,12 @@
             <span class="font-bold tracking-tight text-lg">Brice KONSO</span>
             <div class="flex items-center gap-4">
                 <a href="#contact" class="hidden sm:inline-flex text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Contact</a>
+                
+                <!-- Bouton Remonter en haut -->
+                <a href="#top" class="p-2.5 rounded-xl bg-slate-100 dark:bg-cardbg border border-slate-200 dark:border-cardborder hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm flex items-center justify-center text-slate-600 dark:text-slate-300" title="Remonter en haut">
+                    <i class="fa-solid fa-arrow-up text-sm"></i>
+                </a>
+
                 <!-- Bouton Mode Sombre / Clair -->
                 <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-cardbg border border-slate-200 dark:border-cardborder hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm" title="Changer de thème">
                     <i class="fa-solid fa-circle-half-stroke text-slate-600 dark:text-slate-300"></i>
@@ -69,7 +75,6 @@
                 <a href="mailto:brice.k-pro@outlook.fr" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 flex items-center gap-2">
                     <i class="fa-solid fa-envelope"></i> Me contacter
                 </a>
-                <!-- Bouton Télécharger le CV pointant vers cv.pdf -->
                 <a href="cv.pdf" download class="bg-slate-100 dark:bg-cardbg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2 shadow-sm">
                     <i class="fa-solid fa-file-arrow-down text-blue-500 dark:text-blue-400"></i> Télécharger mon CV
                 </a>
@@ -199,8 +204,8 @@
                     <p class="text-sm text-slate-600 dark:text-slate-300">Étude approfondie des fondamentaux réseaux, commutation et routage.</p>
                 </div>
 
-                <!-- Projet 1 avec lien cliquable vers GitHub -->
-                <a href="https://github.com/briceproit-tech" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group">
+                <!-- Projet 1 avec lien GitHub précis -->
+                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/reseaux" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                         <h3 class="font-bold text-base group-hover:text-blue-500 transition flex items-center gap-2">
                             Projet 1 : Simulation d'architecture réseau d'entreprise <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
@@ -210,8 +215,8 @@
                     <p class="text-sm text-slate-600 dark:text-slate-300">Architecture réseau haute disponibilité et sécurisée (HSRP, STP, routage inter-VLAN, segmentation réseau).</p>
                 </a>
 
-                <!-- Projet 2 avec lien cliquable vers GitHub -->
-                <a href="https://github.com/briceproit-tech" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group">
+                <!-- Projet 2 avec lien GitHub précis -->
+                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/infrastructure-it" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                         <h3 class="font-bold text-base group-hover:text-blue-500 transition flex items-center gap-2">
                             Projet 2 : Infrastructure IT d'entreprise sécurisée et supervisée <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
