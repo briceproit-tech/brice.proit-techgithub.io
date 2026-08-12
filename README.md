@@ -17,7 +17,7 @@ Je suis aussi familiarisé avec les outils de ticketing et de gestion de parc co
 
 | **⚙️ Virtualisation** | VMware ESXi, Hyper-V
 
-| **☁️ Solutions Collaboratives** | Word, Excel, Teams
+| **☁️ Solutions Collaboratives** | Microsoft 365, Microsoft Entra ID, Microsoft Intune
 
 ---
 
