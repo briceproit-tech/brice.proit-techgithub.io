@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="fr" class="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brice KONSO | Portfolio - Technicien & Admin Systèmes & Réseaux</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        darkbg: '#0f172a',
+                        cardbg: '#1e293b',
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- FontAwesome pour les icônes -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="bg-darkbg text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white">
+
+    <!-- En-tête / Hero Section -->
+    <header class="relative overflow-hidden py-20 px-6 border-b border-slate-800">
+        <div class="max-w-4xl mx-auto text-center">
+            <span class="inline-block bg-blue-500/10 text-blue-400 text-sm font-semibold px-4 py-1.5 rounded-full mb-4 border border-blue-500/20">
+                🚀 Alternant / Futur Technicien Informatique & Préparation CCNA
+            </span>
+            <h1 class="text-4xl md:text-6xl font-extrabold tracking-tight mb-6">
+                Salut ! Moi c'est <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-indigo-500">Brice KONSO</span> 👋
+            </h1>
+            <p class="text-lg md:text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-8">
+                Passionné d’infrastructure, de réseaux et de cloud hybride. Je conçois, automatise et sécurise des environnements informatiques modernes.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="#competences" class="bg-blue-600 hover:bg-blue-500 text-white font-medium px-6 py-3 rounded-xl transition shadow-lg shadow-blue-600/20">
+                    <i class="fa-solid fa-layer-group mr-2"></i> Mes compétences
+                </a>
+                <a href="#contact" class="bg-cardbg hover:bg-slate-700 text-slate-200 border border-slate-700 font-medium px-6 py-3 rounded-xl transition">
+                    <i class="fa-solid fa-envelope mr-2"></i> Me contacter
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenu Principal -->
+    <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
+
+        <!-- Section Compétences (Mise à jour avec tes technos courtes) -->
+        <section id="competences">
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="p-3 bg-blue-500/10 text-blue-400 rounded-xl border border-blue-500/20">
+                    <i class="fa-solid fa-screwdriver-wrench text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold tracking-tight">Compétences Techniques</h2>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-6">
+                <!-- Carte Réseaux & Sécurité -->
+                <div class="bg-cardbg p-6 rounded-2xl border border-slate-800 shadow-xl">
+                    <h3 class="text-blue-400 font-semibold mb-4 flex items-center">
+                        <i class="fa-solid fa-shield-halved mr-2"></i> Réseaux & Sécurité
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">pfSense (HA CARP, Portail Captif)</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">DHCP</span>
+                    </div>
+                </div>
+
+                <!-- Carte Réseaux Cisco -->
+                <div class="bg-cardbg p-6 rounded-2xl border border-slate-800 shadow-xl">
+                    <h3 class="text-blue-400 font-semibold mb-4 flex items-center">
+                        <i class="fa-solid fa-network-wired mr-2"></i> Réseaux Cisco & Routing
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Routage Inter-VLAN</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">DHCP / DNS</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">OSPF</span>
+                    </div>
+                </div>
+
+                <!-- Carte Systèmes & Infra -->
+                <div class="bg-cardbg p-6 rounded-2xl border border-slate-800 shadow-xl">
+                    <h3 class="text-blue-400 font-semibold mb-4 flex items-center">
+                        <i class="fa-solid fa-server mr-2"></i> Systèmes & Infra On-Premise
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Windows Server</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Active Directory (AD DS)</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">WDS (Déploiement PXE)</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">GPO</span>
+                    </div>
+                </div>
+
+                <!-- Carte Cloud & Hybridation -->
+                <div class="bg-cardbg p-6 rounded-2xl border border-slate-800 shadow-xl">
+                    <h3 class="text-blue-400 font-semibold mb-4 flex items-center">
+                        <i class="fa-solid fa-cloud mr-2"></i> Cloud & Hybridation
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Microsoft Entra Connect</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Microsoft Intune (MDM)</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">LAPS</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">BitLocker</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Menu Démarrer</span>
+                    </div>
+                </div>
+
+                <!-- Carte Supervision & Services -->
+                <div class="bg-cardbg p-6 rounded-2xl border border-slate-800 shadow-xl md:col-span-2">
+                    <h3 class="text-blue-400 font-semibold mb-4 flex items-center">
+                        <i class="fa-solid fa-chart-line mr-2"></i> Supervision & Services IT
+                    </h3>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Zabbix</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Synology NAS</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">GLPI</span>
+                        <span class="bg-slate-800 text-slate-300 text-xs px-3 py-1.5 rounded-lg border border-slate-700">Synchro LDAP</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Lab & Projets -->
+        <section>
+            <div class="flex items-center space-x-3 mb-8">
+                <div class="p-3 bg-indigo-500/10 text-indigo-400 rounded-xl border border-indigo-500/20">
+                    <i class="fa-solid fa-laptop-code text-xl"></i>
+                </div>
+                <h2 class="text-2xl font-bold tracking-tight">Projets & Laboratoire Récent</h2>
+            </div>
+
+            <div class="space-y-6">
+                <!-- Projet 1 -->
+                <div class="bg-cardbg p-6 rounded-2xl border border-slate-800 shadow-xl">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-white">Simulation d'architecture réseau d'entreprise</h3>
+                        <span class="text-xs bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full border border-indigo-500/20 w-fit mt-2 md:mt-0">Cisco Packet Tracer / GNS3</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Conception d'une architecture réseau hautement disponible et sécurisée intégrant la redondance et le routage inter-VLAN.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded border border-slate-700">HSRP</span>
+                        <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded border border-slate-700">STP</span>
+                        <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded border border-slate-700">Routage Inter-VLAN</span>
+                    </div>
+                </div>
+
+                <!-- Projet 2 -->
+                <div class="bg-cardbg p-6 rounded-2xl border border-slate-800 shadow-xl">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between mb-4">
+                        <h3 class="text-lg font-bold text-white">Infrastructure IT Hybride & Supervision</h3>
+                        <span class="text-xs bg-indigo-500/10 text-indigo-400 px-3 py-1 rounded-full border border-indigo-500/20 w-fit mt-2 md:mt-0">Environnement Virtuel Lab</span>
+                    </div>
+                    <p class="text-slate-300 text-sm mb-4 leading-relaxed">
+                        Mise en place complète d'une infrastructure d'entreprise sécurisée : Active Directory local synchronisé vers M365 (Entra ID), gestion des postes par Intune, supervision Zabbix et services de déploiement PXE/WDS.
+                    </p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded border border-slate-700">Active Directory</span>
+                        <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded border border-slate-700">Entra Connect</span>
+                        <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded border border-slate-700">Zabbix</span>
+                        <span class="text-xs bg-slate-800 text-slate-400 px-2.5 py-1 rounded border border-slate-700">Intune</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Section Contact -->
+        <section id="contact" class="bg-gradient-to-br from-blue-900/20 to-indigo-900/20 p-8 rounded-2xl border border-blue-500/20 text-center">
+            <h2 class="text-2xl font-bold mb-3">Envie d'échanger ou de collaborer ?</h2>
+            <p class="text-slate-300 text-sm mb-6 max-w-md mx-auto">
+                Je suis à l'écoute d'opportunités et disponible pour discuter de projets techniques.
+            </p>
+            <div class="flex justify-center gap-4">
+                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition flex items-center shadow-lg">
+                    <i class="fa-brands fa-linkedin mr-2 text-lg"></i> LinkedIn
+                </a>
+                <a href="mailto:brice.k-pro@outlook.fr" class="bg-cardbg hover:bg-slate-700 text-slate-200 border border-slate-700 text-sm font-medium px-5 py-2.5 rounded-xl transition flex items-center">
+                    <i class="fa-solid fa-envelope mr-2 text-lg text-blue-400"></i> Email
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Pied de page -->
+    <footer class="text-center py-8 border-t border-slate-800 text-slate-500 text-xs">
+        <p>© 2026 Brice KONSO — Tous droits réservés.</p>
+    </footer>
+
+</body>
+</html>
