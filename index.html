@@ -18,41 +18,63 @@
                 }
             }
         }
+        // Script pour basculer entre mode sombre et mode clair
+        function toggleTheme() {
+            document.documentElement.classList.toggle('dark');
+        }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body class="bg-darkbg text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white leading-relaxed">
+<body class="bg-white dark:bg-darkbg text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300 leading-relaxed">
 
-    <!-- En-tête / Hero Section -->
-    <header class="py-24 px-6 border-b border-slate-800/80 bg-gradient-to-b from-slate-900/50 to-transparent">
+    <!-- En-tête / Navigation -->
+    <header class="py-6 px-6 border-b border-slate-200 dark:border-slate-800/80 bg-white/80 dark:bg-slate-900/50 backdrop-blur-md sticky top-0 z-50">
+        <div class="max-w-4xl mx-auto flex justify-between items-center">
+            <span class="font-bold tracking-tight text-lg">Brice KONSO</span>
+            <div class="flex items-center gap-4">
+                <a href="#contact" class="hidden sm:inline-flex text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Contact</a>
+                <!-- Bouton Mode Sombre / Clair -->
+                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-cardbg border border-slate-200 dark:border-cardborder hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm" title="Changer de thème">
+                    <i class="fa-solid fa-circle-half-stroke text-slate-600 dark:text-slate-300"></i>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <header class="py-20 px-6 border-b border-slate-200 dark:border-slate-800/80 bg-gradient-to-b from-slate-50 dark:from-slate-900/50 to-transparent">
         <div class="max-w-4xl mx-auto text-center">
-            <!-- Badge interactif avec point vert -->
-            <span class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-400 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 border border-emerald-500/20 transition-all duration-300 hover:scale-105 hover:bg-emerald-500/20 hover:border-emerald-500/40 cursor-pointer shadow-lg shadow-emerald-500/5">
-                <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span> Recherche CDI / Opportunité dès Septembre 2026
+            <!-- Badge de recherche interactif -->
+            <span class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 border border-emerald-500/20 transition-all duration-300 hover:scale-105 hover:bg-emerald-500/20 hover:border-emerald-500/40 cursor-pointer shadow-lg shadow-emerald-500/5">
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Recherche CDI / Opportunité dès Septembre 2026
             </span>
-            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
+            <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
                 Brice KONSO
             </h1>
-            <p class="text-lg md:text-xl text-blue-400 font-medium mb-6">
+            <p class="text-lg md:text-xl text-blue-600 dark:text-blue-400 font-medium mb-6">
                 Technicien Informatique de Proximité (Support N1/N2 & Systèmes/Réseaux)
             </p>
-            <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-6">
+            <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-6">
                 Actuellement en fin de formation à l'école Doranco et fort d'une expérience en ESN (Jarvis Connect), j'interviens sur le support utilisateur, le déploiement de postes et l'administration systèmes & réseaux. Sérieux, autonome et préparant ma certification CCNA, je recherche un poste en CDI pour développer mes acquis techniques.
             </p>
             
             <!-- Infos pratiques rapides -->
-            <div class="flex flex-wrap justify-center gap-4 text-xs text-slate-400 mb-8">
-                <span class="bg-cardbg px-3 py-1.5 rounded-lg border border-cardborder transition-all duration-300 hover:scale-105 hover:border-blue-500/40 hover:text-slate-200 cursor-default flex items-center"><i class="fa-solid fa-location-dot text-blue-400 mr-1.5"></i> Tremblay-en-France (93)</span>
-                <span class="bg-cardbg px-3 py-1.5 rounded-lg border border-cardborder transition-all duration-300 hover:scale-105 hover:border-blue-500/40 hover:text-slate-200 cursor-default flex items-center"><i class="fa-solid fa-car text-blue-400 mr-1.5"></i> Permis B</span>
-                <span class="bg-cardbg px-3 py-1.5 rounded-lg border border-cardborder transition-all duration-300 hover:scale-105 hover:border-blue-500/40 hover:text-slate-200 cursor-default flex items-center"><i class="fa-solid fa-language text-blue-400 mr-1.5"></i> Anglais B2</span>
+            <div class="flex flex-wrap justify-center gap-4 text-xs text-slate-600 dark:text-slate-400 mb-8">
+                <span class="bg-slate-100 dark:bg-cardbg px-3.5 py-2 rounded-xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-105 hover:border-blue-500/40 hover:text-slate-900 dark:hover:text-slate-200 cursor-default flex items-center shadow-sm"><i class="fa-solid fa-location-dot text-blue-500 dark:text-blue-400 mr-2"></i> Tremblay-en-France (93)</span>
+                <span class="bg-slate-100 dark:bg-cardbg px-3.5 py-2 rounded-xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-105 hover:border-blue-500/40 hover:text-slate-900 dark:hover:text-slate-200 cursor-default flex items-center shadow-sm"><i class="fa-solid fa-car text-blue-500 dark:text-blue-400 mr-2"></i> Permis B</span>
+                <span class="bg-slate-100 dark:bg-cardbg px-3.5 py-2 rounded-xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-105 hover:border-blue-500/40 hover:text-slate-900 dark:hover:text-slate-200 cursor-default flex items-center shadow-sm"><i class="fa-solid fa-language text-blue-500 dark:text-blue-400 mr-2"></i> Anglais B2</span>
             </div>
 
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="mailto:brice.k-pro@outlook.fr" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 flex items-center gap-2">
                     <i class="fa-solid fa-envelope"></i> Me contacter
                 </a>
-                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-cardbg hover:bg-slate-800 text-slate-300 border border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2">
-                    <i class="fa-brands fa-linkedin text-blue-400"></i> LinkedIn
+                <!-- Bouton Télécharger le CV pointant vers le PDF fourni -->
+                <a href="Brice CDI.pdf" download class="bg-slate-100 dark:bg-cardbg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-file-arrow-down text-blue-500 dark:text-blue-400"></i> Télécharger mon CV
+                </a>
+                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-slate-100 dark:bg-cardbg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2 shadow-sm">
+                    <i class="fa-brands fa-linkedin text-blue-500 dark:text-blue-400"></i> LinkedIn
                 </a>
             </div>
         </div>
@@ -60,100 +82,112 @@
 
     <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
 
-        <!-- Expérience Pro -->
+        <!-- Timeline Interactive : Expériences & Formations -->
         <section>
-            <div class="flex items-center gap-3 mb-6">
-                <div class="p-2.5 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
-                    <i class="fa-solid fa-briefcase"></i>
+            <div class="flex items-center gap-3 mb-8">
+                <div class="p-2.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-500/20 shadow-sm">
+                    <i class="fa-solid fa-timeline"></i>
                 </div>
-                <h2 class="text-2xl font-bold tracking-tight text-white">Expérience Professionnelle</h2>
+                <h2 class="text-2xl font-bold tracking-tight">Parcours & Expériences</h2>
             </div>
 
-            <div class="bg-cardbg p-6 rounded-xl border border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                    <h3 class="font-bold text-white text-base">Technicien informatique de proximité <span class="text-blue-400 font-normal">ESN Jarvis Connect</span></h3>
-                    <span class="text-xs bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit">Juillet 2026 - Septembre 2026</span>
+            <div class="space-y-6 border-l-2 border-slate-200 dark:border-slate-800 ml-4 pl-6">
+                
+                <!-- Expérience ESN Jarvis Connect -->
+                <div class="relative transition-all duration-300 hover:scale-[1.02] group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
+                    <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-xl group-hover:shadow-blue-500/5">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                            <h3 class="font-bold text-base">Technicien informatique de proximité <span class="text-blue-600 dark:text-blue-400 font-normal">ESN Jarvis Connect, Montataire</span></h3>
+                            <span class="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit font-medium">Juillet 2026 - Septembre 2026</span>
+                        </div>
+                        <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-2 list-disc list-inside mt-3">
+                            <li>Support N1/N2 : incidents réseaux, brassage de câbles, support utilisateurs.</li>
+                            <li>Administration de GLPI et automatisation des tickets.</li>
+                            <li>Gestion des utilisateurs et des droits sur NAS Synology.</li>
+                            <li>Déploiement de poste et administration Active Directory (mot de passe, GPO).</li>
+                            <li>Documentation technique et formation de technicien aux outils Microsoft.</li>
+                        </ul>
+                    </div>
                 </div>
-                <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside mt-3">
-                    <li>Support N1/N2 : gestion des incidents réseaux, brassage de câbles et assistance aux utilisateurs.</li>
-                    <li>Administration de GLPI et automatisation des tickets de support.</li>
-                    <li>Gestion des utilisateurs et des droits d'accès sur NAS Synology.</li>
-                    <li>Déploiement de postes et administration Active Directory (gestion des mots de passe, GPO).</li>
-                    <li>Rédaction de documentation technique et formation des techniciens aux outils Microsoft.</li>
-                </ul>
-            </div>
-        </section>
 
-        <!-- Formation / Diplôme -->
-        <section>
-            <div class="flex items-center gap-3 mb-6">
-                <div class="p-2.5 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
-                    <i class="fa-solid fa-graduation-cap"></i>
+                <!-- Formation Doranco -->
+                <div class="relative transition-all duration-300 hover:scale-[1.02] group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
+                    <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-xl group-hover:shadow-blue-500/5">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                            <h3 class="font-bold text-base">Formation technicien informatique de proximité <span class="text-blue-600 dark:text-blue-400 font-normal">Doranco École Sup'Tech, Bagnolet</span></h3>
+                            <span class="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit font-medium">Janvier 2026 - Septembre 2026</span>
+                        </div>
+                        <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-2 list-disc list-inside mt-3">
+                            <li>Notions de base en réseaux (TCP/IP, adressage IP).</li>
+                            <li>Notions de sauvegarde et restauration de données.</li>
+                            <li>Diagnostic de pannes simples (matériel et logiciel).</li>
+                            <li>Sensibilisation à la sécurité réseau (Firewall, Proxy, Wi-Fi).</li>
+                            <li>Initiation à l'administration Windows Server 2022 et gestion de parc informatique.</li>
+                            <li>Notions de base sur Active Directory (GPO, groupes de sécurité, déploiement réseau) et SCCM.</li>
+                            <li>Notions de base en virtualisation (haute disponibilité, création de VM).</li>
+                        </ul>
+                    </div>
                 </div>
-                <h2 class="text-2xl font-bold tracking-tight text-white">Formations & Diplômes</h2>
-            </div>
 
-            <div class="bg-cardbg p-6 rounded-xl border border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
-                    <h3 class="font-bold text-white text-base">Technicien informatique de proximité <span class="text-blue-400 font-normal">Doranco École Sup’Tech, Bagnolet</span></h3>
-                    <span class="text-xs bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit">Janvier 2026 - Septembre 2026</span>
+                <!-- Autre expérience -->
+                <div class="relative transition-all duration-300 hover:scale-[1.02] group">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-slate-400 dark:bg-slate-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
+                    <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-xl group-hover:shadow-blue-500/5">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                            <h3 class="font-bold text-base">Employé de rayon fruits/légumes <span class="text-slate-500 font-normal">Leclerc, Clichy-sous-Bois</span></h3>
+                            <span class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-600 dark:text-slate-300 px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 w-fit font-medium">Novembre 2025 - Décembre 2025</span>
+                        </div>
+                    </div>
                 </div>
-                <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside mt-3">
-                    <li>Notions de base en réseaux (TCP/IP, adressage IP).</li>
-                    <li>Notions de sauvegarde et restauration de données.</li>
-                    <li>Diagnostic de pannes simples (matériel et logiciel).</li>
-                    <li>Sensibilisation à la sécurité réseau (Firewall, Proxy, Wi-Fi).</li>
-                    <li>Initiation à l’administration Windows Server 2022.</li>
-                    <li>Premières expériences en gestion de parc informatique.</li>
-                    <li>Notions de base sur Active Directory (GPO, gestion des groupes de sécurité, déploiement de poste via le réseau) et SCCM.</li>
-                    <li>Notions de base en virtualisation (haute disponibilité, création de VM).</li>
-                </ul>
+
             </div>
         </section>
 
         <!-- Compétences Techniques -->
         <section>
             <div class="flex items-center gap-3 mb-6">
-                <div class="p-2.5 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
+                <div class="p-2.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-500/20 shadow-sm">
                     <i class="fa-solid fa-layer-group"></i>
                 </div>
-                <h2 class="text-2xl font-bold tracking-tight text-white">Compétences Techniques</h2>
+                <h2 class="text-2xl font-bold tracking-tight">Compétences Techniques</h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                    <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-desktop"></i> Systèmes & OS
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                    <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-desktop"></i> Système d'exploitation
                     </h3>
-                    <p class="text-sm text-slate-300">Windows, Windows Server 2022, Linux, MacOS</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Windows, Linux, MacOS</p>
                 </div>
 
-                <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                    <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-network-wired"></i> Réseaux & Sécurité
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                    <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-network-wired"></i> Réseaux
                     </h3>
-                    <p class="text-sm text-slate-300">pfSense, DHCP, DNS, Cisco (Routage inter-VLAN, HSRP, STP)</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">pfSense, DHCP, DNS, Cisco</p>
                 </div>
 
-                <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                    <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                    <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-cloud"></i> Cloud & Identité
                     </h3>
-                    <p class="text-sm text-slate-300">Microsoft 365, Microsoft Entra ID, Microsoft Intune, Active Directory (GPO)</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Microsoft 365, Microsoft Entra ID, Microsoft Intune</p>
                 </div>
 
-                <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                    <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                    <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-server"></i> Virtualisation & Stockage
                     </h3>
-                    <p class="text-sm text-slate-300">ESXi, Hyper-V, Proxmox, NAS Synology</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">ESXi, Hyper-V, Proxmox, NAS Synology</p>
                 </div>
 
-                <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm md:col-span-2 transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                    <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-tools"></i> ITSM & Supervision
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm md:col-span-2 transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                    <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-tools"></i> Outils ITSM & Supervision
                     </h3>
-                    <p class="text-sm text-slate-300">GLPI, ServiceNow, Zabbix</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">GLPI, ServiceNow, Zabbix</p>
                 </div>
             </div>
         </section>
@@ -161,64 +195,51 @@
         <!-- Projets & Lab -->
         <section>
             <div class="flex items-center gap-3 mb-6">
-                <div class="p-2.5 bg-indigo-500/10 text-indigo-400 rounded-lg border border-indigo-500/20">
+                <div class="p-2.5 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-xl border border-indigo-500/20 shadow-sm">
                     <i class="fa-solid fa-code"></i>
                 </div>
-                <h2 class="text-2xl font-bold tracking-tight text-white">Projets & Certification</h2>
+                <h2 class="text-2xl font-bold tracking-tight">Projets Techniques & Certification</h2>
             </div>
 
             <div class="space-y-4">
-                <div class="bg-cardbg p-6 rounded-xl border border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                        <h3 class="font-bold text-white text-base">Préparation CCNA (Cisco Certified Network Associate)</h3>
-                        <span class="text-xs bg-indigo-500/10 text-indigo-400 px-2.5 py-1 rounded-md border border-indigo-500/20 w-fit">En cours</span>
+                        <h3 class="font-bold text-base">CCNA - Cisco Certified Network Associate</h3>
+                        <span class="text-xs bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full border border-indigo-500/20 w-fit font-medium">En préparation</span>
                     </div>
-                    <p class="text-sm text-slate-300">Étude approfondie des fondamentaux réseaux, commutation et routage.</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Étude approfondie des fondamentaux réseaux, commutation et routage.</p>
                 </div>
 
-                <!-- Projet 1 : Lien vers le dossier reseaux -->
-                <div class="bg-cardbg p-6 rounded-xl border border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                        <h3 class="text-base">
-                            <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/reseaux" target="_blank" class="font-bold text-white hover:text-blue-400 transition flex items-center gap-2">
-                                Projet 1 : Simulation réseau d'entreprise <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
-                            </a>
-                        </h3>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 w-fit">Cisco Packet Tracer / GNS3</span>
+                        <h3 class="font-bold text-base">Projet 1 : Simulation d'architecture réseau d'entreprise</h3>
+                        <span class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 w-fit font-medium">Cisco Packet Tracer</span>
                     </div>
-                    <p class="text-sm text-slate-300">Conception d'une architecture réseau haute disponibilité (HSRP) et sécurisée (STP, routage inter-VLAN, segmentation).</p>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Architecture réseau haute disponibilité et sécurisée (HSRP, STP, routage inter-VLAN, segmentation réseau).</p>
                 </div>
 
-                <!-- Projet 2 : Lien vers le dossier infrastructure-it -->
-                <div class="bg-cardbg p-6 rounded-xl border border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                        <h3 class="text-base">
-                            <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/infrastructure-it" target="_blank" class="font-bold text-white hover:text-blue-400 transition flex items-center gap-2">
-                                Projet 2 : Infrastructure IT d'entreprise <i class="fa-solid fa-arrow-up-right-from-square text-xs text-slate-400"></i>
-                            </a>
-                        </h3>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 w-fit">Lab Virtuel</span>
+                        <h3 class="font-bold text-base">Projet 2 : Infrastructure IT d'entreprise sécurisée et supervisée</h3>
+                        <span class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 w-fit font-medium">Lab Virtuel</span>
                     </div>
-                    <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
-                        <li>Déploiement d'environnements mixtes Windows Server et Linux.</li>
-                        <li>Mise en place de la supervision, gestion ITIL et automatisation des tâches récurrentes.</li>
-                    </ul>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Déploiement d'environnement Windows Server et Linux, supervision et gestion ITIL, automatisation des tâches récurrentes.</p>
                 </div>
             </div>
         </section>
 
         <!-- Contact Section -->
-        <section class="bg-cardbg p-8 rounded-2xl border border-cardborder text-center transition-all duration-300 hover:scale-[1.01] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-            <h2 class="text-xl font-bold text-white mb-2">Prêt à intégrer votre équipe !</h2>
-            <p class="text-slate-400 text-sm mb-6 max-w-md mx-auto">
+        <section id="contact" class="bg-slate-50 dark:bg-cardbg p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-cardborder text-center transition-all duration-300 hover:scale-[1.01] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+            <h2 class="text-2xl font-bold mb-2">Prêt à intégrer votre équipe !</h2>
+            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mb-8 max-w-md mx-auto">
                 À la recherche d'une opportunité en CDI dès septembre 2026. N'hésite pas à me contacter.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-2">
+                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-2 shadow-lg shadow-blue-600/20">
                     <i class="fa-brands fa-linkedin text-lg"></i> LinkedIn
                 </a>
-                <a href="mailto:brice.k-pro@outlook.fr" class="bg-slate-800 hover:bg-slate-700 text-slate-200 border border-slate-700 text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-2">
-                    <i class="fa-solid fa-envelope text-blue-400 text-lg"></i> brice.k-pro@outlook.fr
+                <a href="mailto:brice.k-pro@outlook.fr" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 text-sm font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-2 shadow-sm">
+                    <i class="fa-solid fa-envelope text-blue-500 dark:text-blue-400 text-lg"></i> brice.k-pro@outlook.fr
                 </a>
             </div>
         </section>
@@ -226,7 +247,7 @@
     </main>
 
     <!-- Footer -->
-    <footer class="text-center py-8 border-t border-slate-800 text-slate-500 text-xs">
+    <footer class="text-center py-8 border-t border-slate-200 dark:border-slate-800 text-slate-500 text-xs">
         <p>© 2026 Brice KONSO — Tous droits réservés.</p>
     </footer>
 
