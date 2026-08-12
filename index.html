@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brice KONSO | Portfolio - Technicien Informatique</title>
+    <title>Brice KONSO | Technicien Support & Systèmes et Réseaux</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -27,20 +27,28 @@
     <header class="py-24 px-6 border-b border-slate-800/80 bg-gradient-to-b from-slate-900/50 to-transparent">
         <div class="max-w-4xl mx-auto text-center">
             <span class="inline-flex items-center gap-2 bg-blue-500/10 text-blue-400 text-xs font-semibold px-3 py-1.5 rounded-full mb-6 border border-blue-500/20">
-                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span> En recherche active d'opportunités en CDI & montée en compétences
+                <span class="w-2 h-2 rounded-full bg-blue-400 animate-pulse"></span> Recherche CDI / Opportunité dès Septembre 2026
             </span>
             <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4 text-white">
                 Brice KONSO
             </h1>
             <p class="text-lg md:text-xl text-blue-400 font-medium mb-6">
-                Étudiant en informatique & Futur Technicien de proximité
+                Technicien Informatique de Proximité (Support N1/N2 & Systèmes/Réseaux)
             </p>
-            <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed">
-                Passionné par l'infrastructure, je prépare activement ma certification CCNA. J'interviens sur le déploiement de postes, le diagnostic matériel et logiciel, l'administration Active Directory et le support M365. Sérieux et curieux, je cherche à m'investir durablement dans un environnement professionnel stimulant.
+            <p class="text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-6">
+                Actuellement en fin de formation à l'école Doranco et fort d'une expérience en ESN (Jarvis Connect), j'interviens sur le support utilisateur, le déploiement de postes et l'administration systèmes & réseaux. Sérieux, autonome et préparant ma certification CCNA, je recherche un poste en CDI pour développer mes acquis techniques.
             </p>
-            <div class="mt-8 flex justify-center gap-4">
+            
+            <!-- Infos pratiques rapides -->
+            <div class="flex flex-wrap justify-center gap-4 text-xs text-slate-400 mb-8">
+                <span class="bg-cardbg px-3 py-1.5 rounded-lg border border-cardborder"><i class="fa-solid fa-location-dot text-blue-400 mr-1.5"></i> Tremblay-en-France (93)</span>
+                <span class="bg-cardbg px-3 py-1.5 rounded-lg border border-cardborder"><i class="fa-solid fa-car text-blue-400 mr-1.5"></i> Permis B</span>
+                <span class="bg-cardbg px-3 py-1.5 rounded-lg border border-cardborder"><i class="fa-solid fa-language text-blue-400 mr-1.5"></i> Anglais B2</span>
+            </div>
+
+            <div class="flex flex-wrap justify-center gap-4">
                 <a href="mailto:brice.k-pro@outlook.fr" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition shadow-lg shadow-blue-600/20 flex items-center gap-2">
-                    <i class="fa-solid fa-envelope">–></i> Me contacter
+                    <i class="fa-solid fa-envelope"></i> Me contacter
                 </a>
                 <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-cardbg hover:bg-slate-800 text-slate-300 border border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition flex items-center gap-2">
                     <i class="fa-brands fa-linkedin text-blue-400"></i> LinkedIn
@@ -51,82 +59,111 @@
 
     <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
 
-        <!-- Compétences -->
+        <!-- Expérience Pro -->
+        <section>
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2.5 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
+                    <i class="fa-solid fa-briefcase"></i>
+                </div>
+                <h2 class="text-2xl font-bold tracking-tight text-white">Expérience Professionnelle</h2>
+            </div>
+
+            <div class="bg-cardbg p-6 rounded-xl border border-cardborder">
+                <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                    <h3 class="font-bold text-white text-base">Technicien informatique de proximité <span class="text-blue-400 font-normal">@ ESN Jarvis Connect</span></h3>
+                    <span class="text-xs bg-blue-500/10 text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit">Juillet 2026 - Septembre 2026</span>
+                </div>
+                <ul class="text-sm text-slate-300 space-y-2 list-disc list-inside mt-3">
+                    <li>Support N1/N2 : gestion des incidents réseaux, brassage de câbles et assistance aux utilisateurs.</li>
+                    <li>Administration de GLPI et automatisation des tickets de support.</li>
+                    <li>Gestion des utilisateurs et des droits d'accès sur NAS Synology.</li>
+                    <li>Déploiement de postes et administration Active Directory (gestion des mots de passe, GPO).</li>
+                    <li>Rédaction de documentation technique et formation des techniciens aux outils Microsoft.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Compétences Techniques -->
         <section>
             <div class="flex items-center gap-3 mb-6">
                 <div class="p-2.5 bg-blue-500/10 text-blue-400 rounded-lg border border-blue-500/20">
                     <i class="fa-solid fa-layer-group"></i>
                 </div>
-                <h2 class="text-2xl font-bold tracking-tight text-white">Compétences Techniques & Formations</h2>
+                <h2 class="text-2xl font-bold tracking-tight text-white">Compétences Techniques</h2>
             </div>
 
             <div class="grid md:grid-cols-2 gap-4">
                 <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm">
                     <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-graduation-cap"></i> Formation
+                        <i class="fa-solid fa-desktop"></i> Systèmes & OS
                     </h3>
-                    <p class="text-sm text-slate-300">Technicien Informatique de Proximité</p>
+                    <p class="text-sm text-slate-300">Windows, Windows Server 2022, Linux, MacOS</p>
                 </div>
 
                 <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm">
                     <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-server"></i> Systèmes
+                        <i class="fa-solid fa-network-wired"></i> Réseaux & Sécurité
                     </h3>
-                    <p class="text-sm text-slate-300">Windows Server (2022), Linux, Active Directory (OU, GPO)</p>
+                    <p class="text-sm text-slate-300">pfSense, DHCP, DNS, Cisco (Routage inter-VLAN, HSRP, STP)</p>
                 </div>
 
                 <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm">
                     <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-network-wired"></i> Réseaux
+                        <i class="fa-solid fa-cloud"></i> Cloud & Identité
                     </h3>
-                    <p class="text-sm text-slate-300">TCP/IP, Routage inter-VLAN, DHCP, DNS, STP, EtherChannel, HSRP</p>
+                    <p class="text-sm text-slate-300">Microsoft 365, Microsoft Entra ID, Microsoft Intune, Active Directory (GPO)</p>
                 </div>
 
                 <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm">
                     <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-microchip"></i> Virtualisation
+                        <i class="fa-solid fa-server"></i> Virtualisation & Stockage
                     </h3>
-                    <p class="text-sm text-slate-300">VMware ESXi, Hyper-V</p>
+                    <p class="text-sm text-slate-300">ESXi, Hyper-V, Proxmox, NAS Synology</p>
                 </div>
 
                 <div class="bg-cardbg p-5 rounded-xl border border-cardborder shadow-sm md:col-span-2">
                     <h3 class="text-sm font-semibold text-blue-400 mb-2 flex items-center gap-2">
-                        <i class="fa-solid fa-cloud"></i> Solutions Collaboratives & Cloud
+                        <i class="fa-solid fa-tools"></i> ITSM & Supervision
                     </h3>
-                    <p class="text-sm text-slate-300">Microsoft 365, Microsoft Entra ID, Microsoft Intune</p>
+                    <p class="text-sm text-slate-300">GLPI, ServiceNow, Zabbix</p>
                 </div>
             </div>
         </section>
 
-        <!-- Projets -->
+        <!-- Projets & Lab -->
         <section>
             <div class="flex items-center gap-3 mb-6">
                 <div class="p-2.5 bg-indigo-500/10 text-indigo-400 rounded-lg border border-indigo-500/20">
                     <i class="fa-solid fa-code"></i>
                 </div>
-                <h2 class="text-2xl font-bold tracking-tight text-white">Projets & Laboratoire Récent</h2>
+                <h2 class="text-2xl font-bold tracking-tight text-white">Projets & Certification</h2>
             </div>
 
             <div class="space-y-4">
                 <div class="bg-cardbg p-6 rounded-xl border border-cardborder">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                        <h3 class="font-bold text-white text-base">Projet 1 : Simulation réseau d'entreprise</h3>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 w-fit">Cisco Packet Tracer / GNS3</span>
+                        <h3 class="font-bold text-white text-base">Préparation CCNA (Cisco Certified Network Associate)</h3>
+                        <span class="text-xs bg-indigo-500/10 text-indigo-400 px-2.5 py-1 rounded-md border border-indigo-500/20 w-fit">En cours</span>
                     </div>
-                    <p class="text-sm text-slate-300">
-                        Conception d'une architecture réseau hautement disponible (HSRP) et sécurisée (STP, VLANs, Routage).
-                    </p>
+                    <p class="text-sm text-slate-300">Étude approfondie des fondamentaux réseaux, commutation et routage.</p>
                 </div>
 
                 <div class="bg-cardbg p-6 rounded-xl border border-cardborder">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                        <h3 class="font-bold text-white text-base">Projet 2 : Infrastructure IT complète</h3>
-                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 w-fit">VMware Workstation 25h2</span>
+                        <h3 class="font-bold text-white text-base">Projet 1 : Simulation réseau d'entreprise</h3>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 w-fit">Cisco Packet Tracer / GNS3</span>
+                    </div>
+                    <p class="text-sm text-slate-300">Conception d'une architecture réseau haute disponibilité (HSRP) et sécurisée (STP, routage inter-VLAN, segmentation).</p>
+                </div>
+
+                <div class="bg-cardbg p-6 rounded-xl border border-cardborder">
+                    <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
+                        <h3 class="font-bold text-white text-base">Projet 2 : Infrastructure IT d'entreprise</h3>
+                        <span class="text-xs bg-slate-800 text-slate-300 px-2.5 py-1 rounded-md border border-slate-700 w-fit">Lab Virtuel</span>
                     </div>
                     <ul class="text-sm text-slate-300 space-y-1.5 list-disc list-inside">
-                        <li>Déploiement d'environnements mixtes Windows Server (AD, DNS, DHCP) et serveurs Linux.</li>
-                        <li>Mise en place d'une solution de gestion de parc et de ticketing (GLPI).</li>
-                        <li>Automatisation des tâches administratives récurrentes.</li>
+                        <li>Déploiement d'environnements mixtes Windows Server et Linux.</li>
+                        <li>Mise en place de la supervision, gestion ITIL et automatisation des tâches récurrentes.</li>
                     </ul>
                 </div>
             </div>
@@ -134,9 +171,9 @@
 
         <!-- Contact Section -->
         <section class="bg-cardbg p-8 rounded-2xl border border-cardborder text-center">
-            <h2 class="text-xl font-bold text-white mb-2">Intéressé par mon profil ?</h2>
+            <h2 class="text-xl font-bold text-white mb-2">Prêt à intégrer votre équipe !</h2>
             <p class="text-slate-400 text-sm mb-6 max-w-md mx-auto">
-                Je suis ouvert aux propositions en CDI et prêt à m'investir pleinement pour monter en compétences. Échangeons !
+                À la recherche d'une opportunité en CDI dès septembre 2026. N'hésitez pas à me contacter.
             </p>
             <div class="flex flex-wrap justify-center gap-4">
                 <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition flex items-center gap-2">
