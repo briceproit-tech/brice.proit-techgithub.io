@@ -33,6 +33,8 @@
         }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Bibliothèque AOS (Animate On Scroll) -->
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 </head>
 <body id="top" class="bg-white dark:bg-darkbg text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300 leading-relaxed animate-fadeIn">
 
@@ -58,7 +60,7 @@
 
     <!-- Hero Section -->
     <header class="py-20 px-6 border-b border-slate-200 dark:border-slate-800/80 bg-gradient-to-b from-slate-50 dark:from-slate-900/50 to-transparent">
-        <div class="max-w-4xl mx-auto text-center">
+        <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
             <!-- Badge de recherche interactif -->
             <span class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 border border-emerald-500/20 transition-all duration-300 hover:scale-105 hover:bg-emerald-500/20 hover:border-emerald-500/40 cursor-pointer shadow-lg shadow-emerald-500/5">
                 <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Recherche CDI / Opportunité dès Septembre 2026
@@ -97,7 +99,7 @@
     <main class="max-w-4xl mx-auto px-6 py-12 space-y-16">
 
         <!-- Timeline Interactive : Expériences & Formations -->
-        <section>
+        <section data-aos="fade-up">
             <div class="flex items-center gap-3 mb-8">
                 <div class="p-2.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-500/20 shadow-sm">
                     <i class="fa-solid fa-timeline"></i>
@@ -108,7 +110,7 @@
             <div class="space-y-6 border-l-2 border-slate-200 dark:border-slate-800 ml-4 pl-6">
                 
                 <!-- Expérience ESN Jarvis Connect -->
-                <div class="relative transition-all duration-300 hover:scale-[1.02] group">
+                <div class="relative transition-all duration-300 hover:scale-[1.02] group" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
                     <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-xl group-hover:shadow-blue-500/5">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
@@ -126,7 +128,7 @@
                 </div>
 
                 <!-- Formation Doranco -->
-                <div class="relative transition-all duration-300 hover:scale-[1.02] group">
+                <div class="relative transition-all duration-300 hover:scale-[1.02] group" data-aos="fade-up" data-aos-delay="200">
                     <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
                     <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 group-hover:border-blue-500/50 group-hover:shadow-xl group-hover:shadow-blue-500/5">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
@@ -149,7 +151,7 @@
         </section>
 
         <!-- Compétences Techniques -->
-        <section>
+        <section data-aos="fade-up">
             <div class="flex items-center gap-3 mb-6">
                 <div class="p-2.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-500/20 shadow-sm">
                     <i class="fa-solid fa-layer-group"></i>
@@ -158,35 +160,35 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-desktop"></i> Système d'exploitation
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">Windows, Linux, MacOS</p>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="150">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-network-wired"></i> Réseaux
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">pfSense, DHCP, DNS, Cisco</p>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-cloud"></i> Cloud & Identité
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">Microsoft 365, Microsoft Entra ID, Microsoft Intune</p>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="250">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-server"></i> Virtualisation & Stockage
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">ESXi, Hyper-V, Proxmox, NAS Synology</p>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm md:col-span-2 transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm md:col-span-2 transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-tools"></i> Outils ITSM & Supervision
                     </h3>
@@ -196,7 +198,7 @@
         </section>
 
         <!-- Projets & Lab -->
-        <section>
+        <section data-aos="fade-up">
             <div class="flex items-center gap-3 mb-6">
                 <div class="p-2.5 bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 rounded-xl border border-indigo-500/20 shadow-sm">
                     <i class="fa-solid fa-code"></i>
@@ -205,7 +207,7 @@
             </div>
 
             <div class="space-y-4">
-                <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5">
+                <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-indigo-500/50 hover:shadow-xl hover:shadow-indigo-500/5" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                         <h3 class="font-bold text-base">CCNA - Cisco Certified Network Associate</h3>
                         <span class="text-xs bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full border border-indigo-500/20 w-fit font-medium">En préparation</span>
@@ -214,7 +216,7 @@
                 </div>
 
                 <!-- Projet 1 -->
-                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/reseaux" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group">
+                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/reseaux" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group" data-aos="fade-up" data-aos-delay="150">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                         <h3 class="font-bold text-base group-hover:text-blue-500 transition flex items-center gap-2">
                             Projet 1 : Simulation d'architecture réseau d'entreprise <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
@@ -225,7 +227,7 @@
                 </a>
 
                 <!-- Projet 2 -->
-                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/infrastructure-it" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group">
+                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/infrastructure-it" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                         <h3 class="font-bold text-base group-hover:text-blue-500 transition flex items-center gap-2">
                             Projet 2 : Infrastructure IT d'entreprise sécurisée et supervisée <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
@@ -237,8 +239,32 @@
             </div>
         </section>
 
+        <!-- Section Centres d'intérêt / Sports de combat -->
+        <section data-aos="fade-up">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2.5 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-xl border border-orange-500/20 shadow-sm">
+                    <i class="fa-solid fa-fire"></i>
+                </div>
+                <h2 class="text-2xl font-bold tracking-tight">Centres d'intérêt</h2>
+            </div>
+
+            <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-orange-500/50 hover:shadow-xl hover:shadow-orange-500/5">
+                <h3 class="text-base font-bold mb-3 flex items-center gap-2">
+                    <i class="fa-solid fa-shield-halved text-orange-500"></i> Sports de combat & Discipline
+                </h3>
+                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
+                    Passionné par la rigueur, la stratégie et le dépassement de soi à travers les arts martiaux et la condition physique :
+                </p>
+                <div class="flex flex-wrap gap-2.5">
+                    <span class="bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 flex items-center gap-2"><i class="fa-solid fa-hand-fist text-orange-500"></i> Jiu-jitsu brésilien (JJB)</span>
+                    <span class="bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 flex items-center gap-2"><i class="fa-solid fa-dumbbell text-orange-500"></i> Musculation</span>
+                    <span class="bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 flex items-center gap-2"><i class="fa-solid fa-person-falling text-orange-500"></i> Lutte libre</span>
+                </div>
+            </div>
+        </section>
+
         <!-- Contact Section -->
-        <section id="contact" class="bg-slate-50 dark:bg-cardbg p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-cardborder text-center transition-all duration-300 hover:scale-[1.01] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+        <section id="contact" class="bg-slate-50 dark:bg-cardbg p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-cardborder text-center transition-all duration-300 hover:scale-[1.01] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up">
             <h2 class="text-2xl font-bold mb-2">Prêt à intégrer votre équipe !</h2>
             <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mb-8 max-w-md mx-auto">
                 À la recherche d'une opportunité en CDI dès septembre 2026. N'hésite pas à me contacter.
@@ -259,6 +285,16 @@
     <footer class="text-center py-8 border-t border-slate-200 dark:border-slate-800 text-slate-500 text-xs">
         <p>© 2026 Brice KONSO — Tous droits réservés.</p>
     </footer>
+
+    <!-- Script JS pour initialiser AOS -->
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init({
+            duration: 800, // Vitesse de l'animation en millisecondes
+            once: true,    // L'animation ne se joue qu'une seule fois quand on descend
+            offset: 50     // Déclenche l'animation un peu avant que l'élément n'apparaisse à l'écran
+        });
+    </script>
 
 </body>
 </html>
