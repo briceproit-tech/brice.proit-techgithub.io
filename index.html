@@ -5,6 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Brice KONSO | Technicien Support & Systèmes et Réseaux</title>
     <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- SDK EmailJS -->
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+    <script type="text/javascript">
+       (function(){
+          emailjs.init({
+            publicKey: "0d3Eb9vqxPR8Wpnt-",
+          });
+       })();
+    </script>
+
     <script>
         tailwind.config = {
             darkMode: 'class',
@@ -31,10 +42,104 @@
         function toggleTheme() {
             document.documentElement.classList.toggle('dark');
         }
+
+        // Script pour filtrer les projets
+        function filterProjects(category) {
+            const items = document.querySelectorAll('.project-item');
+            const buttons = document.querySelectorAll('.filter-btn');
+
+            buttons.forEach(btn => {
+                if (btn.getAttribute('data-filter') === category) {
+                    btn.classList.remove('bg-slate-100', 'dark:bg-cardbg', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-cardborder');
+                    btn.classList.add('bg-blue-600', 'text-white', 'border-blue-600');
+                } else {
+                    btn.classList.remove('bg-blue-600', 'text-white', 'border-blue-600');
+                    btn.classList.add('bg-slate-100', 'dark:bg-cardbg', 'text-slate-700', 'dark:text-slate-300', 'border-slate-200', 'dark:border-cardborder');
+                }
+            });
+
+            items.forEach(item => {
+                const categories = item.getAttribute('data-category').split(' ');
+                if (category === 'all' || categories.includes(category)) {
+                    item.style.display = 'block';
+                    setTimeout(() => {
+                        item.style.opacity = '1';
+                        item.style.transform = 'scale(1)';
+                    }, 50);
+                } else {
+                    item.style.opacity = '0';
+                    item.style.transform = 'scale(0.95)';
+                    setTimeout(() => {
+                        item.style.display = 'none';
+                    }, 200);
+                }
+            });
+        }
+
+        // Gestion de la modale de projet
+        function openModal(title, description, link) {
+            document.getElementById('modal-title').innerText = title;
+            document.getElementById('modal-desc').innerText = description;
+            document.getElementById('modal-link').href = link;
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('hidden');
+            modal.classList.add('flex');
+        }
+
+        function closeModal() {
+            const modal = document.getElementById('project-modal');
+            modal.classList.remove('flex');
+            modal.classList.add('hidden');
+        }
+
+        // Envoi réel du formulaire de contact via EmailJS
+        function handleContactForm(event) {
+            event.preventDefault();
+            
+            const alertBox = document.getElementById('form-alert');
+            const errorBox = document.getElementById('form-error');
+            const submitBtn = document.getElementById('submit-btn');
+            
+            // Désactiver le bouton pendant l'envoi
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fa-solid fa-spinner fa-spin mr-2"></i> Envoi en cours...';
+
+            emailjs.sendForm('service_d18aa7r', 'template_halkw0q', '#contact-form')
+                .then(() => {
+                    alertBox.classList.remove('hidden');
+                    errorBox.classList.add('hidden');
+                    document.getElementById('contact-form').reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane mr-2"></i> Envoyer le message';
+                    
+                    setTimeout(() => {
+                        alertBox.classList.add('hidden');
+                    }, 5000);
+                }, (error) => {
+                    console.error('Erreur EmailJS:', error);
+                    errorBox.classList.remove('hidden');
+                    alertBox.classList.add('hidden');
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = '<i class="fa-solid fa-paper-plane mr-2"></i> Envoyer le message';
+                });
+        }
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <!-- Bibliothèque AOS (Animate On Scroll) -->
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+
+<style>
+.interactive-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+.interactive-hover:hover {
+    transform: scale(1.02);
+}
+.project-item {
+    transition: opacity 0.2s ease, transform 0.2s ease;
+}
+</style>
+
 </head>
 <body id="top" class="bg-white dark:bg-darkbg text-slate-800 dark:text-slate-100 font-sans antialiased selection:bg-blue-500 selection:text-white transition-colors duration-300 leading-relaxed animate-fadeIn">
 
@@ -46,12 +151,12 @@
                 <a href="#contact" class="hidden sm:inline-flex text-sm font-medium text-blue-600 dark:text-blue-400 hover:underline">Contact</a>
                 
                 <!-- Bouton Remonter en haut -->
-                <a href="#top" class="p-2.5 rounded-xl bg-slate-100 dark:bg-cardbg border border-slate-200 dark:border-cardborder hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm flex items-center justify-center text-slate-600 dark:text-slate-300" title="Remonter en haut">
+                <a href="#top" class="interactive-hover p-2.5 rounded-xl bg-slate-100 dark:bg-cardbg border border-slate-200 dark:border-cardborder hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm flex items-center justify-center text-slate-600 dark:text-slate-300" title="Remonter en haut">
                     <i class="fa-solid fa-arrow-up text-sm"></i>
                 </a>
 
                 <!-- Bouton Mode Sombre / Clair -->
-                <button onclick="toggleTheme()" class="p-2.5 rounded-xl bg-slate-100 dark:bg-cardbg border border-slate-200 dark:border-cardborder hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm" title="Changer de thème">
+                <button onclick="toggleTheme()" class="interactive-hover p-2.5 rounded-xl bg-slate-100 dark:bg-cardbg border border-slate-200 dark:border-cardborder hover:bg-slate-200 dark:hover:bg-slate-800 transition shadow-sm" title="Changer de thème">
                     <i class="fa-solid fa-circle-half-stroke text-slate-600 dark:text-slate-300"></i>
                 </button>
             </div>
@@ -63,7 +168,7 @@
         <div class="max-w-4xl mx-auto text-center" data-aos="fade-up">
             <!-- Badge de recherche interactif -->
             <span class="inline-flex items-center gap-2 bg-emerald-500/10 text-emerald-600 dark:text-emerald-400 text-xs font-semibold px-3.5 py-1.5 rounded-full mb-6 border border-emerald-500/20 transition-all duration-300 hover:scale-105 hover:bg-emerald-500/20 hover:border-emerald-500/40 cursor-pointer shadow-lg shadow-emerald-500/5">
-                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Recherche CDI / Opportunité dès Septembre 2026
+                <span class="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Actuellement en poste
             </span>
             <h1 class="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
                 Brice KONSO
@@ -72,7 +177,7 @@
                 Technicien Informatique de Proximité (Support N1/N2 & Systèmes/Réseaux)
             </p>
             <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-6">
-                Actuellement en fin de formation à l'école Doranco et fort d'une expérience en ESN (Jarvis Connect), j'interviens sur le support utilisateur, le déploiement de postes et l'administration systèmes & réseaux. Sérieux, autonome et préparant ma certification CCNA, je recherche un poste en CDI pour développer mes acquis techniques.
+                Ayant terminé ma formation à l'école Doranco et fort d'une expérience en ESN (Jarvis Connect), je suis actuellement correspondant informatique. J'interviens sur la gestion du parc, le support aux utilisateurs et l'administration des environnements de travail. Sérieux, autonome et préparant ma certification CCNA, je poursuis mon évolution dans le domaine des systèmes et réseaux.
             </p>
             
             <!-- Infos pratiques rapides -->
@@ -83,13 +188,13 @@
             </div>
 
             <div class="flex flex-wrap justify-center gap-4">
-                <a href="mailto:brice.k-pro@outlook.fr" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 flex items-center gap-2">
+                <a href="#contact" class="interactive-hover bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 shadow-lg shadow-blue-600/20 flex items-center gap-2">
                     <i class="fa-solid fa-envelope"></i> Me contacter
                 </a>
-                <a href="cv.pdf" download class="bg-slate-100 dark:bg-cardbg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2 shadow-sm">
+                <a href="cv.pdf" download class="interactive-hover bg-slate-100 dark:bg-cardbg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2 shadow-sm">
                     <i class="fa-solid fa-file-arrow-down text-blue-500 dark:text-blue-400"></i> Télécharger mon CV
                 </a>
-                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-slate-100 dark:bg-cardbg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2 shadow-sm">
+                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="interactive-hover bg-slate-100 dark:bg-cardbg hover:bg-slate-200 dark:hover:bg-slate-800 text-slate-700 dark:text-slate-200 border border-slate-200 dark:border-cardborder text-sm font-medium px-5 py-2.5 rounded-xl transition-all duration-300 hover:scale-105 hover:border-blue-500/40 flex items-center gap-2 shadow-sm">
                     <i class="fa-brands fa-linkedin text-blue-500 dark:text-blue-400"></i> LinkedIn
                 </a>
             </div>
@@ -109,10 +214,29 @@
 
             <div class="space-y-6 border-l-2 border-slate-200 dark:border-slate-800 ml-4 pl-6">
                 
+                <!-- Expérience Correspondant Informatique - Caisse des Dépôts -->
+                <div class="relative group" data-aos="fade-up" data-aos-delay="100">
+                    <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
+                    <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                        <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
+                            <h3 class="font-bold text-base">Correspondant Informatique <span class="text-blue-600 dark:text-blue-400 font-normal">Caisse des Dépôts, Paris 7e</span></h3>
+                            <span class="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit font-medium">Août 2026 - Aujourd'hui</span>
+                        </div>
+                        <ul class="text-sm text-slate-600 dark:text-slate-300 space-y-2 list-disc list-inside mt-3">
+                            <li>Gestion et suivi du parc informatique et de l’inventaire du matériel.</li>
+                            <li>Traitement et suivi des demandes utilisateurs via l’outil de ticketing.</li>
+                            <li>Gestion des habilitations et des accès aux applications.</li>
+                            <li>Préparation du matériel et des accès informatiques lors des arrivées et départs des collaborateurs.</li>
+                            <li>Gestion des commandes, livraisons et distributions de matériel informatique.</li>
+                            <li>Support de premier niveau et accompagnement des utilisateurs sur les outils Microsoft 365.</li>
+                        </ul>
+                    </div>
+                </div>
+
                 <!-- Expérience ESN Jarvis Connect -->
                 <div class="relative group" data-aos="fade-up" data-aos-delay="100">
                     <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
-                    <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                    <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                             <h3 class="font-bold text-base">Technicien informatique de proximité <span class="text-blue-600 dark:text-blue-400 font-normal">ESN Jarvis Connect, Montataire</span></h3>
                             <span class="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit font-medium">Juillet 2026 - Septembre 2026</span>
@@ -128,9 +252,9 @@
                 </div>
 
                 <!-- Formation Doranco -->
-                <div class="relative group" data-aos="fade-up" data-aos-delay="200">
+                <div class="relative group" data-aos="fade-up" data-aos-delay="300">
                     <div class="absolute -left-[31px] top-1.5 w-4 h-4 bg-blue-600 rounded-full border-4 border-white dark:border-darkbg shadow-sm"></div>
-                    <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
+                    <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
                         <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-2">
                             <h3 class="font-bold text-base">Formation technicien informatique de proximité <span class="text-blue-600 dark:text-blue-400 font-normal">Doranco École Sup'Tech, Bagnolet</span></h3>
                             <span class="text-xs bg-blue-500/10 text-blue-600 dark:text-blue-400 px-3 py-1 rounded-full border border-blue-500/20 w-fit font-medium">Janvier 2026 - Septembre 2026</span>
@@ -160,39 +284,44 @@
             </div>
 
             <div class="grid md:grid-cols-2 gap-4">
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="100">
+                <div class="interactive-hover relative group bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="100">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-desktop"></i> Système d'exploitation
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">Windows, Linux, MacOS</p>
+                    <span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">Maîtrise en déploiement & support</span>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="150">
+                <div class="interactive-hover relative group bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="150">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-network-wired"></i> Réseaux
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">pfSense, DHCP, DNS, Cisco</p>
+                    <span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">Routage, VLANs & Commutation</span>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="200">
+                <div class="interactive-hover relative group bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="200">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-cloud"></i> Cloud & Identité
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">Microsoft 365, Microsoft Entra ID, Microsoft Intune</p>
+                    <span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">Gestion des accès & MDM</span>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="250">
+                <div class="interactive-hover relative group bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="250">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-server"></i> Virtualisation & Stockage
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">ESXi, Hyper-V, Proxmox, NAS Synology</p>
+                    <span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">Haute dispo & Sauvegardes</span>
                 </div>
 
-                <div class="bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm md:col-span-2 transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="300">
+                <div class="interactive-hover relative group bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm md:col-span-2 transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="300">
                     <h3 class="text-sm font-semibold text-blue-600 dark:text-blue-400 mb-2 flex items-center gap-2">
                         <i class="fa-solid fa-tools"></i> Outils ITSM & Supervision
                     </h3>
                     <p class="text-sm text-slate-600 dark:text-slate-300">GLPI, ServiceNow, Zabbix</p>
+                    <span class="absolute -top-8 left-1/2 -translate-x-1/2 opacity-0 group-hover:opacity-100 transition-opacity bg-slate-900 text-white text-[10px] px-2 py-1 rounded shadow-lg pointer-events-none whitespace-nowrap">Ticketing & Monitoring</span>
                 </div>
             </div>
         </section>
@@ -206,17 +335,34 @@
                 <h2 class="text-2xl font-bold tracking-tight">Projets Techniques & Certification</h2>
             </div>
 
-            <div class="space-y-4">
-                <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up" data-aos-delay="100">
+            <!-- Boutons de Filtrage Interactifs -->
+            <div class="flex flex-wrap gap-2 mb-6">
+                <button onclick="filterProjects('all')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-blue-600 text-white border-blue-600 transition shadow-sm">
+                    Tous
+                </button>
+                <button onclick="filterProjects('cisco')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm">
+                    Cisco & Réseaux
+                </button>
+                <button onclick="filterProjects('lab')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm">
+                    Lab Virtuel & Systèmes
+                </button>
+                <button onclick="filterProjects('certif')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm">
+                    Certification
+                </button>
+            </div>
+
+            <div class="space-y-4" id="projects-container">
+                <!-- Élément 1 : Certification -->
+                <div onclick="openModal('CCNA - Cisco Certified Network Associate', 'Étude approfondie des fondamentaux réseaux, commutation et routage. Préparation intensive aux concepts Cisco.', 'https://www.cisco.com')" class="project-item interactive-hover cursor-pointer bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm" data-category="certif" data-aos="fade-up" data-aos-delay="100">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
-                        <h3 class="font-bold text-base">CCNA - Cisco Certified Network Associate</h3>
+                        <h3 class="font-bold text-base">CCNA - Cisco Certified Network Associate <span class="text-xs text-blue-500 font-normal ml-2">(Cliquer pour détails)</span></h3>
                         <span class="text-xs bg-indigo-500/10 text-indigo-600 dark:text-indigo-400 px-3 py-1 rounded-full border border-indigo-500/20 w-fit font-medium">En préparation</span>
                     </div>
                     <p class="text-sm text-slate-600 dark:text-slate-300">Étude approfondie des fondamentaux réseaux, commutation et routage.</p>
                 </div>
 
-                <!-- Projet 1 -->
-                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/reseaux" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group" data-aos="fade-up" data-aos-delay="150">
+                <!-- Élément 2 : Projet 1 (Cisco) -->
+                <div onclick="openModal('Simulation d\'architecture réseau d\'entreprise', 'Architecture réseau haute disponibilité et sécurisée (HSRP, STP, routage inter-VLAN, segmentation réseau) sous Cisco Packet Tracer.', 'https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/reseaux')" class="project-item interactive-hover cursor-pointer bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm group" data-category="cisco" data-aos="fade-up" data-aos-delay="150">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                         <h3 class="font-bold text-base group-hover:text-blue-500 transition flex items-center gap-2">
                             Projet 1 : Simulation d'architecture réseau d'entreprise <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
@@ -224,10 +370,10 @@
                         <span class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 w-fit font-medium">Cisco Packet Tracer</span>
                     </div>
                     <p class="text-sm text-slate-600 dark:text-slate-300">Architecture réseau haute disponibilité et sécurisée (HSRP, STP, routage inter-VLAN, segmentation réseau).</p>
-                </a>
+                </div>
 
-                <!-- Projet 2 -->
-                <a href="https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/infrastructure-it" target="_blank" class="block bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5 group" data-aos="fade-up" data-aos-delay="200">
+                <!-- Élément 3 : Projet 2 (Lab) -->
+                <div onclick="openModal('Infrastructure IT d\'entreprise sécurisée et supervisée', 'Déploiement d\'environnement Windows Server et Linux, supervision et gestion ITIL, automatisation des tâches récurrentes sur lab virtuel.', 'https://github.com/briceproit-tech/brice.proit-techgithub.io/tree/main/infrastructure-it')" class="project-item interactive-hover cursor-pointer bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm group" data-category="lab" data-aos="fade-up" data-aos-delay="200">
                     <div class="flex flex-col md:flex-row md:items-center justify-between gap-2 mb-3">
                         <h3 class="font-bold text-base group-hover:text-blue-500 transition flex items-center gap-2">
                             Projet 2 : Infrastructure IT d'entreprise sécurisée et supervisée <i class="fa-solid fa-arrow-up-right-from-square text-xs opacity-60"></i>
@@ -235,11 +381,11 @@
                         <span class="text-xs bg-slate-200 dark:bg-slate-800 text-slate-700 dark:text-slate-300 px-3 py-1 rounded-full border border-slate-300 dark:border-slate-700 w-fit font-medium">Lab Virtuel</span>
                     </div>
                     <p class="text-sm text-slate-600 dark:text-slate-300">Déploiement d'environnement Windows Server et Linux, supervision et gestion ITIL, automatisation des tâches récurrentes.</p>
-                </a>
+                </div>
             </div>
         </section>
 
-        <!-- Section Centres d'intérêt / Sports de combat -->
+        <!-- Section Centres d'intérêt -->
         <section data-aos="fade-up">
             <div class="flex items-center gap-3 mb-6">
                 <div class="p-2.5 bg-orange-500/10 text-orange-600 dark:text-orange-400 rounded-xl border border-orange-500/20 shadow-sm">
@@ -247,52 +393,113 @@
                 </div>
                 <h2 class="text-2xl font-bold tracking-tight">Centres d'intérêt</h2>
             </div>
-
-            <div class="bg-slate-50 dark:bg-cardbg p-6 rounded-2xl border border-slate-200 dark:border-cardborder transition-all duration-300 hover:scale-[1.02] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5">
-                <h3 class="text-base font-bold mb-3 flex items-center gap-2">
-                    <i class="fa-solid fa-shield-halved text-orange-500"></i> Sports de combat & Discipline
-                </h3>
-                <p class="text-sm text-slate-600 dark:text-slate-300 mb-4">
-                    Passionné par la rigueur, la stratégie et le dépassement de soi à travers les arts martiaux et la condition physique :
-                </p>
-                <div class="flex flex-wrap gap-2.5">
-                    <span class="bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 flex items-center gap-2"><i class="fa-solid fa-hand-fist text-orange-500"></i> Jiu-jitsu brésilien (JJB)</span>
-                    <span class="bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 flex items-center gap-2"><i class="fa-solid fa-dumbbell text-orange-500"></i> Musculation</span>
-                    <span class="bg-slate-200/70 dark:bg-slate-800 text-slate-700 dark:text-slate-200 text-xs font-medium px-3.5 py-1.5 rounded-xl border border-slate-300 dark:border-slate-700 flex items-center gap-2"><i class="fa-solid fa-person-falling text-orange-500"></i> Lutte libre</span>
+            
+            <div class="grid md:grid-cols-3 gap-4">
+                <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm">
+                    <h3 class="text-sm font-semibold text-orange-600 dark:text-orange-400 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-dumbbell"></i> Sports de combat
+                    </h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Jiu-Jitsu Brésilien (JJB), lutte libre et musculation (rigueur et discipline).</p>
+                </div>
+                <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm">
+                    <h3 class="text-sm font-semibold text-orange-600 dark:text-orange-400 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-microchip"></i> Veille & Tech
+                    </h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Exploration continue des infrastructures cloud, virtualisation et réseaux sécurisés.</p>
+                </div>
+                <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-5 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm">
+                    <h3 class="text-sm font-semibold text-orange-600 dark:text-orange-400 mb-2 flex items-center gap-2">
+                        <i class="fa-solid fa-wrench"></i> Mécanique & Bricolage
+                    </h3>
+                    <p class="text-sm text-slate-600 dark:text-slate-300">Logique de dépannage physique et maintenance électrique de base.</p>
                 </div>
             </div>
         </section>
 
-        <!-- Contact Section -->
-        <section id="contact" class="bg-slate-50 dark:bg-cardbg p-8 md:p-12 rounded-3xl border border-slate-200 dark:border-cardborder text-center transition-all duration-300 hover:scale-[1.01] hover:border-blue-500/50 hover:shadow-xl hover:shadow-blue-500/5" data-aos="fade-up">
-            <h2 class="text-2xl font-bold mb-2">Prêt à intégrer votre équipe !</h2>
-            <p class="text-slate-600 dark:text-slate-400 text-sm md:text-base mb-8 max-w-md mx-auto">
-                À la recherche d'une opportunité en CDI dès septembre 2026. N'hésite pas à me contacter.
+        <!-- Section Contact -->
+        <section id="contact" data-aos="fade-up">
+            <div class="flex items-center gap-3 mb-6">
+                <div class="p-2.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-500/20 shadow-sm">
+                    <i class="fa-solid fa-paper-plane"></i>
+                </div>
+                <h2 class="text-2xl font-bold tracking-tight">Me contacter</h2>
+            </div>
+            
+            <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
+                Vous souhaitez échanger sur une opportunité professionnelle, un projet technique ou une collaboration ? N'hésitez pas à m'envoyer un message via le formulaire ci-dessous ou directement par e-mail.
             </p>
-            <div class="flex flex-wrap justify-center gap-4">
-                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="bg-blue-600 hover:bg-blue-500 text-white text-sm font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-2 shadow-lg shadow-blue-600/20">
-                    <i class="fa-brands fa-linkedin text-lg"></i> LinkedIn
-                </a>
-                <a href="mailto:brice.k-pro@outlook.fr" class="bg-slate-200 dark:bg-slate-800 hover:bg-slate-300 dark:hover:bg-slate-700 text-slate-800 dark:text-slate-200 border border-slate-300 dark:border-slate-700 text-sm font-medium px-6 py-3 rounded-xl transition-all duration-300 hover:scale-105 flex items-center gap-2 shadow-sm">
-                    <i class="fa-solid fa-envelope text-blue-500 dark:text-blue-400 text-lg"></i> brice.k-pro@outlook.fr
-                </a>
+
+            <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm">
+                <form id="contact-form" onsubmit="handleContactForm(event)" class="space-y-4">
+                    <div class="grid md:grid-cols-2 gap-4">
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Votre Nom</label>
+                            <input type="text" name="from_name" required class="w-full bg-white dark:bg-darkbg border border-slate-200 dark:border-cardborder rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition shadow-sm" placeholder="Jean Dupont">
+                        </div>
+                        <div>
+                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Votre Email</label>
+                            <input type="email" name="from_email" required class="w-full bg-white dark:bg-darkbg border border-slate-200 dark:border-cardborder rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition shadow-sm" placeholder="jean.dupont@exemple.fr">
+                        </div>
+                    </div>
+                    <div>
+                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Message</label>
+                        <textarea name="message" rows="4" required class="w-full bg-white dark:bg-darkbg border border-slate-200 dark:border-cardborder rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition shadow-sm" placeholder="Bonjour Brice, je vous contacte concernant..."></textarea>
+                    </div>
+
+                    <div id="form-alert" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium rounded-xl flex items-center gap-2">
+                        <i class="fa-solid fa-circle-check"></i> Votre message a bien été envoyé ! Je vous répondrai rapidement.
+                    </div>
+
+                    <div id="form-error" class="hidden p-4 bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-medium rounded-xl flex items-center gap-2">
+                        <i class="fa-solid fa-circle-exclamation"></i> Une erreur est survenue lors de l'envoi. Veuillez réessayer ou me contacter directement.
+                    </div>
+
+                    <button type="submit" id="submit-btn" class="interactive-hover w-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm py-3.5 rounded-xl transition shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
+                        <i class="fa-solid fa-paper-plane"></i> Envoyer le message
+                    </button>
+                </form>
             </div>
         </section>
 
     </main>
 
-    <!-- Footer -->
-    <footer class="text-center py-8 border-t border-slate-200 dark:border-slate-800 text-slate-500 text-xs">
-        <p>© 2026 Brice KONSO — Tous droits réservés.</p>
+    <!-- Pied de page -->
+    <footer class="border-t border-slate-200 dark:border-slate-800/80 py-8 px-6 text-center text-xs text-slate-500 dark:text-slate-400">
+        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
+            <p>&copy; 2026 Brice KONSO. Tous droits réservés.</p>
+            <div class="flex items-center gap-4">
+                <a href="https://github.com/briceproit-tech" target="_blank" class="hover:text-blue-500 transition"><i class="fa-brands fa-github text-base"></i></a>
+                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="hover:text-blue-500 transition"><i class="fa-brands fa-linkedin text-base"></i></a>
+                <a href="mailto:contact@briceproit.tech" class="hover:text-blue-500 transition"><i class="fa-solid fa-envelope text-base"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <!-- Script JS pour initialiser AOS -->
+    <!-- Modale de détail des projets -->
+    <div id="project-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-6 z-50">
+        <div class="bg-white dark:bg-cardbg border border-slate-200 dark:border-cardborder max-w-lg w-full p-6 rounded-2xl shadow-2xl relative animate-fadeIn">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white p-2">
+                <i class="fa-solid fa-xmark text-lg"></i>
+            </button>
+            <h3 id="modal-title" class="text-lg font-bold mb-3 pr-8">Titre du projet</h3>
+            <p id="modal-desc" class="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Description détaillée du projet...</p>
+            <div class="flex justify-end gap-3">
+                <button onclick="closeModal()" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition">Fermer</button>
+                <a id="modal-link" href="#" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium rounded-xl transition flex items-center gap-2">
+                    <span>Voir la ressource</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts AOS -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
-            duration: 800, // Vitesse de l'animation en millisecondes
-            once: true,    // L'animation ne se joue qu'une seule fois quand on descend
-            offset: 50     // Déclenche l'animation un peu avant que l'élément n'apparaisse à l'écran
+            duration: 800,
+            once: true,
+            offset: 50
         });
     </script>
 
