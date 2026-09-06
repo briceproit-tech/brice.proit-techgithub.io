@@ -177,7 +177,7 @@
                 Technicien Informatique de Proximité (Support N1/N2 & Systèmes/Réseaux)
             </p>
             <p class="text-slate-600 dark:text-slate-300 max-w-2xl mx-auto text-sm md:text-base leading-relaxed mb-6">
-                Ayant terminé ma formation à l'école Doranco et fort d'une expérience en ESN (Jarvis Connect), je suis actuellement correspondant informatique. J'interviens sur la gestion du parc, le support aux utilisateurs et l'administration des environnements de travail. Sérieux, autonome et préparant ma certification CCNA, je poursuis mon évolution dans le domaine des systèmes et réseaux.
+                Actuellement en poste en tant que correspondant informatique, j'interviens sur la gestion du parc, le support aux utilisateurs et l'administration des environnements de travail. Fort d'une expérience au siège social d'une ESN en tant que technicien informatique de proximité, je suis sérieux, autonome et je prépare ma certification CCNA pour poursuivre mon évolution dans le domaine des systèmes et réseaux.
             </p>
             
             <!-- Infos pratiques rapides -->
@@ -337,16 +337,16 @@
 
             <!-- Boutons de Filtrage Interactifs -->
             <div class="flex flex-wrap gap-2 mb-6">
-                <button onclick="filterProjects('all')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-blue-600 text-white border-blue-600 transition shadow-sm">
+                <button onclick="filterProjects('all')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-blue-600 text-white border-blue-600 transition shadow-sm" data-filter="all">
                     Tous
                 </button>
-                <button onclick="filterProjects('cisco')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm">
+                <button onclick="filterProjects('cisco')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm" data-filter="cisco">
                     Cisco & Réseaux
                 </button>
-                <button onclick="filterProjects('lab')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm">
+                <button onclick="filterProjects('lab')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm" data-filter="lab">
                     Lab Virtuel & Systèmes
                 </button>
-                <button onclick="filterProjects('certif')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm">
+                <button onclick="filterProjects('certif')" class="filter-btn text-xs font-semibold px-4 py-2 rounded-xl border bg-slate-100 dark:bg-cardbg text-slate-700 dark:text-slate-300 border-slate-200 dark:border-cardborder hover:border-blue-500/40 transition shadow-sm" data-filter="certif">
                     Certification
                 </button>
             </div>
@@ -416,46 +416,37 @@
             </div>
         </section>
 
-        <!-- Section Contact -->
+        <!-- Section Contact / Formulaire -->
         <section id="contact" data-aos="fade-up">
             <div class="flex items-center gap-3 mb-6">
                 <div class="p-2.5 bg-blue-500/10 text-blue-600 dark:text-blue-400 rounded-xl border border-blue-500/20 shadow-sm">
-                    <i class="fa-solid fa-paper-plane"></i>
+                    <i class="fa-solid fa-envelope"></i>
                 </div>
                 <h2 class="text-2xl font-bold tracking-tight">Me contacter</h2>
             </div>
-            
-            <p class="text-sm text-slate-600 dark:text-slate-300 mb-6">
-                Vous souhaitez échanger sur une opportunité professionnelle, un projet technique ou une collaboration ? N'hésitez pas à m'envoyer un message via le formulaire ci-dessous ou directement par e-mail.
-            </p>
 
-            <div class="interactive-hover bg-slate-50 dark:bg-cardbg p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm">
+            <div class="bg-slate-50 dark:bg-cardbg p-6 md:p-8 rounded-2xl border border-slate-200 dark:border-cardborder shadow-sm">
                 <form id="contact-form" onsubmit="handleContactForm(event)" class="space-y-4">
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Votre Nom</label>
-                            <input type="text" name="from_name" required class="w-full bg-white dark:bg-darkbg border border-slate-200 dark:border-cardborder rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition shadow-sm" placeholder="Jean Dupont">
-                        </div>
-                        <div>
-                            <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Votre Email</label>
-                            <input type="email" name="from_email" required class="w-full bg-white dark:bg-darkbg border border-slate-200 dark:border-cardborder rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition shadow-sm" placeholder="jean.dupont@exemple.fr">
-                        </div>
+                    <div id="form-alert" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 rounded-xl text-sm">
+                        Votre message a bien été envoyé !
+                    </div>
+                    <div id="form-error" class="hidden p-4 bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 rounded-xl text-sm">
+                        Une erreur est survenue lors de l'envoi. Veuillez réessayer.
                     </div>
                     <div>
-                        <label class="block text-xs font-semibold uppercase tracking-wider text-slate-600 dark:text-slate-400 mb-2">Message</label>
-                        <textarea name="message" rows="4" required class="w-full bg-white dark:bg-darkbg border border-slate-200 dark:border-cardborder rounded-xl px-4 py-3 text-sm focus:outline-none focus:border-blue-500 transition shadow-sm" placeholder="Bonjour Brice, je vous contacte concernant..."></textarea>
+                        <label class="block text-xs font-semibold uppercase text-slate-500 dark:text-slate-400 mb-1">Nom / Entreprise</label>
+                        <input type="text" name="user_name" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-cardborder text-sm focus:outline-none focus:border-blue-500">
                     </div>
-
-                    <div id="form-alert" class="hidden p-4 bg-emerald-500/10 border border-emerald-500/20 text-emerald-600 dark:text-emerald-400 text-xs font-medium rounded-xl flex items-center gap-2">
-                        <i class="fa-solid fa-circle-check"></i> Votre message a bien été envoyé ! Je vous répondrai rapidement.
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-500 dark:text-slate-400 mb-1">Email</label>
+                        <input type="email" name="user_email" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-cardborder text-sm focus:outline-none focus:border-blue-500">
                     </div>
-
-                    <div id="form-error" class="hidden p-4 bg-red-500/10 border border-red-500/20 text-red-600 dark:text-red-400 text-xs font-medium rounded-xl flex items-center gap-2">
-                        <i class="fa-solid fa-circle-exclamation"></i> Une erreur est survenue lors de l'envoi. Veuillez réessayer ou me contacter directement.
+                    <div>
+                        <label class="block text-xs font-semibold uppercase text-slate-500 dark:text-slate-400 mb-1">Message</label>
+                        <textarea name="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-white dark:bg-slate-900 border border-slate-200 dark:border-cardborder text-sm focus:outline-none focus:border-blue-500"></textarea>
                     </div>
-
-                    <button type="submit" id="submit-btn" class="interactive-hover w-full bg-blue-600 hover:bg-blue-500 text-white font-medium text-sm py-3.5 rounded-xl transition shadow-lg shadow-blue-600/20 flex items-center justify-center gap-2">
-                        <i class="fa-solid fa-paper-plane"></i> Envoyer le message
+                    <button type="submit" id="submit-btn" class="w-full py-3 bg-blue-600 hover:bg-blue-500 text-white font-medium rounded-xl transition shadow-lg shadow-blue-600/20 text-sm">
+                        <i class="fa-solid fa-paper-plane mr-2"></i> Envoyer le message
                     </button>
                 </form>
             </div>
@@ -463,45 +454,27 @@
 
     </main>
 
-    <!-- Pied de page -->
-    <footer class="border-t border-slate-200 dark:border-slate-800/80 py-8 px-6 text-center text-xs text-slate-500 dark:text-slate-400">
-        <div class="max-w-4xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-4">
-            <p>&copy; 2026 Brice KONSO. Tous droits réservés.</p>
-            <div class="flex items-center gap-4">
-                <a href="https://github.com/briceproit-tech" target="_blank" class="hover:text-blue-500 transition"><i class="fa-brands fa-github text-base"></i></a>
-                <a href="https://www.linkedin.com/in/brice-konso-858644359/" target="_blank" class="hover:text-blue-500 transition"><i class="fa-brands fa-linkedin text-base"></i></a>
-                <a href="mailto:contact@briceproit.tech" class="hover:text-blue-500 transition"><i class="fa-solid fa-envelope text-base"></i></a>
-            </div>
-        </div>
-    </footer>
-
-    <!-- Modale de détail des projets -->
-    <div id="project-modal" class="fixed inset-0 bg-slate-950/80 backdrop-blur-sm hidden items-center justify-center p-6 z-50">
-        <div class="bg-white dark:bg-cardbg border border-slate-200 dark:border-cardborder max-w-lg w-full p-6 rounded-2xl shadow-2xl relative animate-fadeIn">
-            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white p-2">
+    <!-- Modale de projet -->
+    <div id="project-modal" class="fixed inset-0 bg-black/60 backdrop-blur-sm hidden items-center justify-center z-50 p-4">
+        <div class="bg-white dark:bg-cardbg border border-slate-200 dark:border-cardborder max-w-lg w-full p-6 rounded-2xl shadow-2xl relative">
+            <button onclick="closeModal()" class="absolute top-4 right-4 text-slate-400 hover:text-slate-600 dark:hover:text-white">
                 <i class="fa-solid fa-xmark text-lg"></i>
             </button>
-            <h3 id="modal-title" class="text-lg font-bold mb-3 pr-8">Titre du projet</h3>
-            <p id="modal-desc" class="text-sm text-slate-600 dark:text-slate-300 mb-6 leading-relaxed">Description détaillée du projet...</p>
-            <div class="flex justify-end gap-3">
-                <button onclick="closeModal()" class="px-4 py-2 bg-slate-100 dark:bg-slate-800 text-slate-700 dark:text-slate-300 text-xs font-medium rounded-xl hover:bg-slate-200 dark:hover:bg-slate-700 transition">Fermer</button>
-                <a id="modal-link" href="#" target="_blank" class="px-4 py-2 bg-blue-600 hover:bg-blue-500 text-white text-xs font-medium rounded-xl transition flex items-center gap-2">
-                    <span>Voir la ressource</span>
-                    <i class="fa-solid fa-arrow-up-right-from-square text-[10px]"></i>
-                </a>
-            </div>
+            <h3 id="modal-title" class="text-lg font-bold mb-2">Titre du projet</h3>
+            <p id="modal-desc" class="text-sm text-slate-600 dark:text-slate-300 mb-6">Description détaillée...</p>
+            <a id="modal-link" href="#" target="_blank" class="inline-flex items-center gap-2 bg-blue-600 text-white text-sm font-medium px-4 py-2 rounded-xl transition hover:bg-blue-500">
+                <i class="fa-solid fa-code"></i> Voir sur GitHub / Source
+            </a>
         </div>
     </div>
 
-    <!-- Scripts AOS -->
+    <!-- Bibliothèque AOS (JS) -->
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script>
         AOS.init({
             duration: 800,
-            once: true,
-            offset: 50
+            once: true
         });
     </script>
-
 </body>
 </html>
